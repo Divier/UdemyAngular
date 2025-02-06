@@ -1,0 +1,10 @@
+<h1>main-page-component works!</h1>
+<hr>
+<div class="row">
+  <div class="col">
+    <app-dbz-list [characterList]="characters" (onDeleteCharacter)="onDeleteCharacter($event)"></app-dbz-list>
+  </div>
+  <div class="col">
+    <app-dbz-add-character (onNewCharacter)="onNewCharacter($event)"></app-dbz-add-character>
+  </div>
+</div>

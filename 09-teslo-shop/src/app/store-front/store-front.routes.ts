@@ -1,30 +1,30 @@
 import { Routes } from '@angular/router';
-import { StoreFrontLayoutComponent } from './layouts/store-front-layout/store-front-layout.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { GenderPageComponent } from './pages/gender-page/gender-page.component';
-import { ProductPageComponent } from './pages/product-page/product-page.component';
-import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { StoreFrontLayout } from './layouts/store-front-layout/store-front-layout';
+import { HomePage } from './pages/home-page/home-page';
+import { GenderPage } from './pages/gender-page/gender-page';
+import { ProductPage } from './pages/product-page/product-page';
+import { NotFoundPage } from './pages/not-found-page/not-found-page';
 
-export const storeFronRoutes: Routes = [
+export const storeFrontRoutes: Routes = [
   {
     path: '',
-    component: StoreFrontLayoutComponent,
-    children: [
+    component: StoreFrontLayout,
+    children:[
       {
         path: '',
-        component: HomePageComponent
+        component: HomePage
       },
       {
         path: 'gender/:gender',
-        component: GenderPageComponent
+        component: GenderPage
       },
       {
         path: 'product/:idSlug',
-        component: ProductPageComponent
+        component: ProductPage
       },
       {
         path: '**',
-        component: NotFoundPageComponent
+        component: NotFoundPage
       }
     ]
   },
@@ -34,4 +34,4 @@ export const storeFronRoutes: Routes = [
   }
 ];
 
-export default storeFronRoutes;
+export default storeFrontRoutes;

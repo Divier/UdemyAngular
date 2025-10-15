@@ -1,10 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, night;
+  themes: nord --default, night --prefersdark, cupcake, dracula
 }
+/* In above example, we have 4 themes: nord, night, cupcake, and dracula. nord is the default theme, night is the default theme for dark mode, and cupcake and dracula are available to use with data-theme="cupcake" and data-theme="dracula".*/
 
 @theme {
-  --font-roboto: "Montserrat", sans-serif;
+  --font-monserrat: "Montserrat", sans-serif;
+
+  --animate-fade-in: fade-in 1s ease-in-out forwards;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/fonts/montserrat-alternates/MontserratAlternates-Medium.ttf") format("truetype");
 }

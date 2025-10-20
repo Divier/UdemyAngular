@@ -12,4 +12,16 @@
       </div>
     </a>
   }
+
+  @for (gifHistoryKey of gifService.searchHistoryKeys(); track gifHistoryKey) {
+    <a [routerLink]="['/dashboard/history', gifHistoryKey]" routerLinkActive="bg-blue-800"
+      class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 bg-blue-800 hover:bg-white/5 transition ease-linear duration-150">
+      <div>
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-lg font-bold leading-5 text-white">{{ gifHistoryKey }}</span>
+      </div>
+    </a>
+  }
 </div>

@@ -1,0 +1,61 @@
+<app-title [title]="'Directivas de flujo control'"></app-title>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">if: {{ showContent() }}</h2>
+    <button class="p-2 bg-blue-500 rounded text-white" (click)="toggleContent()" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded">Click</button>
+
+    @if (showContent()) {
+      <p class="mt-4">This content is conditionally rendered based on the value of <code>showContent</code>.</p>
+    } @else {
+      <p>***********</p>
+    }
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-3xl">{{ grade() }}</h2>
+    @switch (grade()) {
+      @case ('A') {
+        <p class="mt-4">Excelente</p>
+      }
+      @case ('B') {
+        <p class="mt-4">Buen trabajo!</p>
+      }
+      @case ('F') {
+        <p class="mt-4">¡Mejor suerte la próxima vez!</p>
+      }
+      @default {
+        <p class="mt-4">Calificación no válida</p>
+      }
+    }
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">for</h2>
+
+    <ul>
+      @for (framework of frameWorks(); track $index;
+        let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count) {
+        <li
+          [class]="{
+            'bg-red-100': even && !first && !last,
+            'bg-pink-50': odd && !first && !last,
+            'bg-blue-100': first || last
+          }"
+          >{{i + 1}} - {{ framework }}
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded-none shadow p-10">
+      <ul>
+        @for (framework of frameWorks2(); track $index;) {
+          <li class="mb-2 p-2 bg-gray-100 rounded">{{ framework }}</li>
+        } @empty {
+          <li>No hay Frameworks agregados</li>
+        }
+      </ul>
+    </div>
+</section>

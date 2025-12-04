@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { Product } from '@products/interfaces/product.interface';
 import { ProductImagePipe } from '@products/pipes/product-image-pipe';
 import { PaginationService } from '@shared/components/pagination.service';
-import { Pagination } from '@shared/components/pagination/pagination';
 
 @Component({
   selector: 'app-product-table',
-  imports: [ProductImagePipe, CurrencyPipe, RouterLink, Pagination],
+  imports: [ProductImagePipe, CurrencyPipe, RouterLink],
   templateUrl: './product-table.component.html',
   styleUrl: './product-table.component.css'
 })

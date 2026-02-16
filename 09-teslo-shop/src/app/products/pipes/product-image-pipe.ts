@@ -8,7 +8,12 @@ export class ProductImagePipe implements PipeTransform {
 
   productService = inject(ProductService);
 
-  transform(value: string[]): string {
+  transform(value: null | string | string[]): string {
+
+    if(value === null) {
+      return './assets/images/no-image.jpg';
+    }
+
     if(value.length === 0) {
       return this.productService.getImageProduct();
     }
